@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#2E86AB">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Handy - Goals Tracking App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar Navigation (hidden on mobile) -->
+        <div class="sidebar">
+            <h2>🎯 Handy Navigation</h2>
+            <ul class="nav-list">
+                <li class="nav-item active" data-page="welcome">Welcome</li>
+                <li class="nav-item" data-page="profile">Profile Setup</li>
+                <li class="nav-item" data-page="goals">Goals</li>
+                <li class="nav-item" data-page="affirmations">Affirmations</li>
+                <li class="nav-item" data-page="reflection">Daily Reflection</li>
+                <li class="nav-item" data-page="dashboard">Dashboard</li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Welcome Page -->
+            <div class="page active" id="welcome-page">
+                <h1 class="main-header">Handy</h1>
+                <p class="sub-header">The goals-tracking app that makes you think more than twice – your life in your hands.</p>
+                
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/400x300/2E86AB/FFFFFF?text=Handy+App" alt="Handy App">
+                </div>
+                
+                <hr>
+                
+                <h2>🎯 What problems are we solving?</h2>
+                <ul class="problem-list">
+                    <li><strong>Clarity about life goals</strong></li>
+                    <li><strong>Progress tracking</strong></li>
+                    <li><strong>Motivation & Accountability</strong></li>
+                    <li><strong>Self optimization</strong></li>
+                </ul>
+                
+                <hr>
+                
+                <h2>👥 Perfect for:</h2>
+                <p><strong>Tech-savvy, professionally motivated adults (22-40 years)</strong> who:</p>
+                <ul>
+                    <li>Want to pursue their goals clearly</li>
+                    <li>Are ready to pay for personalized self-optimization tools</li>
+                    <li>Seek AI-supported productivity apps</li>
+                    <li>Value daily routines and personal development</li>
+                </ul>
+                
+                <div class="tip-box">
+                    <p><strong>💡 Pro Tip:</strong> Bookmark this app for easy access!</p>
+                </div>
+                
+                <button class="primary-button" onclick="navigateTo('profile')">🚀 Get Started</button>
+            </div>
+
+            <!-- Profile Setup Page -->
+            <div class="page" id="profile-page">
+                <h1>👤 Profile Setup</h1>
+                
+                <div class="form-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="job">Current Job</label>
+                        <input type="text" id="job" placeholder="Your current job">
+                    </div>
+                    
+                    <h3>Hobbies</h3>
+                    <div class="hobby-selector">
+                        <div class="hobby-item">Reading</div>
+                        <div class="hobby-item">Cooking</div>
+                        <div class="hobby-item">Sports</div>
+                        <div class="hobby-item">Music</div>
+                        <div class="hobby-item">Travel</div>
+                        <div class="hobby-item">Art</div>
+                        <div class="hobby-item">Gaming</div>
+                        <div class="hobby-item">Gardening</div>
+                    </div>
+                    
+                    <h3>Life Areas Prioritization</h3>
+                    <p>Drag to reorder your priorities:</p>
+                    <ul class="sortable-list" id="life-areas">
+                        <li class="sortable-item">Career & Work</li>
+                        <li class="sortable-item">Health & Fitness</li>
+                        <li class="sortable-item">Family & Relationships</li>
+                        <li class="sortable-item">Personal Growth</li>
+                        <li class="sortable-item">Finances</li>
+                        <li class="sortable-item">Recreation & Leisure</li>
+                    </ul>
+                    
+                    <button class="primary-button" onclick="saveProfile()">Save Profile</button>
+                </div>
+            </div>
+
+            <!-- Goals Page -->
+            <div class="page" id="goals-page">
+                <h1>🎯 Goals</h1>
+                
+                <div class="goals-container">
+                    <div class="life-area-card">
+                        <h2>Career & Work</h2>
+                        <div class="goal-list">
+                            <div class="goal-card">
+                                <h3>Get promoted to senior position</h3>
+                                <p><strong>Target date:</strong> December 2025</p>
+                                <p><strong>Progress:</strong> 35%</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 35%"></div>
+                                </div>
+                            </div>
+                            <button class="secondary-button">+ Add Goal</button>
+                        </div>
+                    </div>
+                    
+                    <div class="life-area-card">
+                        <h2>Health & Fitness</h2>
+                        <div class="goal-list">
+                            <div class="goal-card">
+                                <h3>Run a half marathon</h3>
+                                <p><strong>Target date:</strong> June 2025</p>
+                                <p><strong>Progress:</strong> 20%</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 20%"></div>
+                                </div>
+                            </div>
+                            <button class="secondary-button">+ Add Goal</button>
+                        </div>
+                    </div>
+                    
+                    <button class="primary-button">Add Life Area</button>
+                </div>
+            </div>
+
+            <!-- Affirmations Page -->
+            <div class="page" id="affirmations-page">
+                <h1>💭 Affirmations</h1>
+                
+                <div class="affirmations-container">
+                    <div class="affirmation-card">
+                        <p class="affirmation-text">"I am capable of achieving my goals through consistent effort."</p>
+                        <div class="affirmation-actions">
+                            <button class="icon-button">✏️</button>
+                            <button class="icon-button">🗑️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="affirmation-card">
+                        <p class="affirmation-text">"I prioritize my health and well-being every day."</p>
+                        <div class="affirmation-actions">
+                            <button class="icon-button">✏️</button>
+                            <button class="icon-button">🗑️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="add-affirmation">
+                        <h3>Add New Affirmation</h3>
+                        <textarea placeholder="Enter your affirmation here..."></textarea>
+                        <button class="primary-button">Add Affirmation</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Reflection Page -->
+            <div class="page" id="reflection-page">
+                <h1>🌅 Daily Reflection</h1>
+                
+                <div class="reflection-container">
+                    <div class="date-selector">
+                        <button class="icon-button">◀️</button>
+                        <h3>September 10, 2025</h3>
+                        <button class="icon-button">▶️</button>
+                    </div>
+                    
+                    <div class="mood-tracker">
+                        <h3>Today's Mood</h3>
+                        <div class="mood-options">
+                            <div class="mood-option">😔</div>
+                            <div class="mood-option">😐</div>
+                            <div class="mood-option">🙂</div>
+                            <div class="mood-option selected">😊</div>
+                            <div class="mood-option">😁</div>
+                        </div>
+                    </div>
+                    
+                    <div class="affirmation-tracker">
+                        <h3>Affirmation Adherence</h3>
+                        <div class="affirmation-check">
+                            <p>"I am capable of achieving my goals through consistent effort."</p>
+                            <label class="checkbox">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="affirmation-check">
+                            <p>"I prioritize my health and well-being every day."</p>
+                            <label class="checkbox">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="reflection-notes">
+                        <h3>Reflection Notes</h3>
+                        <textarea placeholder="Write your thoughts about today..."></textarea>
+                    </div>
+                    
+                    <button class="primary-button">Save Reflection</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div class="page" id="dashboard-page">
+                <h1>📊 Dashboard</h1>
+                
+                <div class="dashboard-container">
+                    <div class="metric-card">
+                        <h3>Goal Progress</h3>
+                        <div class="chart-placeholder">
+                            <div class="chart-bar" style="height: 30%"></div>
+                            <div class="chart-bar" style="height: 50%"></div>
+                            <div class="chart-bar" style="height: 70%"></div>
+                            <div class="chart-bar" style="height: 40%"></div>
+                            <div class="chart-bar" style="height: 60%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Mood Trends</h3>
+                        <div class="chart-placeholder">
+                            <div class="chart-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Affirmation Adherence</h3>
+                        <div class="chart-placeholder">
+                            <div class="chart-circle">
+                                <span>85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h3>Weekly Summary</h3>
+                        <p>You've made progress on 3 goals this week!</p>
+                        <p>Your mood has been consistently positive.</p>
+                        <p>You've adhered to your affirmations 85% of the time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Bar -->
+        <div class="mobile-nav-bar">
+            <a class="nav-item active" data-page="welcome">
+                <div class="nav-icon">🏠</div>
+                <div>Home</div>
+            </a>
+            <a class="nav-item" data-page="profile">
+                <div class="nav-icon">👤</div>
+                <div>Profile</div>
+            </a>
+            <a class="nav-item" data-page="goals">
+                <div class="nav-icon">🎯</div>
+                <div>Goals</div>
+            </a>
+            <a class="nav-item" data-page="affirmations">
+                <div class="nav-icon">💭</div>
+                <div>Affirm</div>
+            </a>
+            <a class="nav-item" data-page="reflection">
+                <div class="nav-icon">🌅</div>
+                <div>Reflect</div>
+            </a>
+            <a class="nav-item" data-page="dashboard">
+                <div class="nav-icon">📊</div>
+                <div>Stats</div>
+            </a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

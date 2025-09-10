@@ -1,0 +1,548 @@
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+#app {
+    display: flex;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    color: #2E86AB;
+    margin-bottom: 0.5em;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1.5em 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 1.5em;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.nav-list {
+    margin-top: 1.5em;
+}
+
+.sidebar .nav-item {
+    padding: 0.8em 0;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    padding-left: 0.5em;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-item:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar .nav-item.active {
+    border-left-color: #2E86AB;
+    color: #2E86AB;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+    padding-bottom: 80px; /* Space for mobile nav */
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Welcome Page Styles */
+.main-header {
+    text-align: center;
+    color: #2E86AB;
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.sub-header {
+    text-align: center;
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+.image-container {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.problem-list li, .benefits-list li {
+    margin-bottom: 0.5em;
+    padding-left: 1em;
+    position: relative;
+}
+
+.problem-list li:before, .benefits-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2E86AB;
+}
+
+.tip-box {
+    background-color: #f3f4f6;
+    padding: 1em;
+    border-radius: 8px;
+    margin: 1.5em 0;
+    border-left: 4px solid #2E86AB;
+}
+
+/* Button Styles */
+.primary-button {
+    display: inline-block;
+    background-color: #2E86AB;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    margin: 1em 0;
+    font-size: 1em;
+}
+
+.primary-button:hover {
+    background-color: #1a6a8e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.secondary-button {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0.5em 0;
+}
+
+.secondary-button:hover {
+    background-color: #e0e0e0;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 0.3em;
+}
+
+/* Form Styles */
+.form-section {
+    background-color: white;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.hobby-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+.hobby-item {
+    background-color: #f0f0f0;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.hobby-item.selected {
+    background-color: #2E86AB;
+    color: white;
+}
+
+.sortable-list {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1.5em;
+}
+
+.sortable-item {
+    padding: 1em;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    cursor: move;
+}
+
+.sortable-item:last-child {
+    border-bottom: none;
+}
+
+/* Goals Page Styles */
+.life-area-card {
+    background: #f8f9fa;
+    padding: 1.5em;
+    border-radius: 10px;
+    border-left: 5px solid #2E86AB;
+    margin: 1em 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.goal-card {
+    background: #e3f2fd;
+    padding: 1em;
+    border-radius: 8px;
+    margin: 0.5em 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 0.5em;
+}
+
+.progress {
+    height: 100%;
+    background-color: #2E86AB;
+}
+
+/* Affirmations Page Styles */
+.affirmation-card {
+    background: #f3e5f5;
+    padding: 1em;
+    border-radius: 8px;
+    margin: 0.5em 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.affirmation-text {
+    font-style: italic;
+    flex: 1;
+}
+
+.affirmation-actions {
+    display: flex;
+    gap: 0.5em;
+}
+
+.add-affirmation {
+    margin-top: 2em;
+}
+
+/* Reflection Page Styles */
+.date-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
+.mood-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.mood-option {
+    font-size: 2em;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.mood-option:hover {
+    transform: scale(1.1);
+}
+
+.mood-option.selected {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.affirmation-check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #eee;
+}
+
+.checkbox {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox input:checked ~ .checkmark {
+    background-color: #2E86AB;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Dashboard Page Styles */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5em;
+}
+
+.metric-card, .summary-card {
+    background-color: white;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.chart-placeholder {
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 1em;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    margin-top: 1em;
+}
+
+.chart-bar {
+    width: 30px;
+    background-color: #2E86AB;
+    border-radius: 3px 3px 0 0;
+}
+
+.chart-line {
+    width: 100%;
+    height: 2px;
+    background-color: #2E86AB;
+    position: relative;
+    top: 50%;
+}
+
+.chart-line:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: -25px;
+    background: linear-gradient(to bottom, rgba(46, 134, 171, 0.2), transparent);
+    border-radius: 50%;
+}
+
+.chart-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#2E86AB 0% 85%, #f0f0f0 85% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.chart-circle span {
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #2E86AB;
+}
+
+/* Mobile Navigation Bar */
+.mobile-nav-bar {
+    display: none;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    #app {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 1em;
+    }
+    
+    .main-header {
+        font-size: 2em;
+    }
+    
+    .sub-header {
+        font-size: 1em;
+    }
+    
+    .mobile-nav-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+    
+    .mobile-nav-bar .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.7rem;
+        color: #666;
+        text-decoration: none;
+    }
+    
+    .mobile-nav-bar .nav-icon {
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+    }
+    
+    .mobile-nav-bar .nav-item.active {
+        color: #2E86AB;
+        font-weight: bold;
+    }
+    
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-section, .life-area-card, .affirmation-card {
+        padding: 1em;
+    }
+    
+    .hobby-selector {
+        gap: 0.3em;
+    }
+    
+    .hobby-item {
+        padding: 0.3em 0.8em;
+        font-size: 0.9em;
+    }
+    
+    button, .primary-button, .secondary-button {
+        width: 100%;
+    }
+}
